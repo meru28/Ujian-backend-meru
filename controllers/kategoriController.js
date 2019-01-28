@@ -30,7 +30,7 @@ module.exports = {
     },
     editKategori: (req, res) => {
         data = {
-            nama: req.body.namakategori
+            nama: req.body.nama
         }
         sql = `UPDATE categories SET ? WHERE id=${req.params.id}`
         conn.query(sql, data, (err, results) => {
@@ -41,7 +41,7 @@ module.exports = {
     },
     deleteKategori: (req, res) => {
         sql = `DELETE FROM categories WHERE id=${req.params.id};`;
-        sql1 = `DELETE FROM moviecat WHERE idcategory=${req.params.id};`;
+        sql1 = `DELETE FROM movcat WHERE idcategory=${req.params.id};`;
         conn.query(sql, (err, results) => {
             if(err) throw err;
             console.log(results);

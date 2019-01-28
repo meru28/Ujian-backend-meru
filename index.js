@@ -13,11 +13,13 @@ app.get('/', (req, res) => {
 
 const { 
     movieRouter,
-    kategoriRouter
+    kategoriRouter,
+    movicatRouter
 } = require('./routers');
 
 app.use('/movie', movieRouter);
 app.use('/kategori',kategoriRouter);
+app.use('/movcat', movicatRouter)
 
 app.listen(port, () => console.log(`API jalan di port ${port}`));
 

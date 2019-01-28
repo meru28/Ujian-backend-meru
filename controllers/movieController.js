@@ -11,15 +11,15 @@ module.exports = {
     },
     addMovie: (req, res) => {
         data = {
-            nama: req.body.nama,
+            nama: req.body.namamovie,
             tahun: req.body.tahun,
-            description: req.body.description
+            description: req.body.deskripsi
         }
         var sql = `INSERT INTO movies SET ?`
         conn.query(sql, data, (err, results) => {
             if(err) throw err;
             console.log(results);
-            res.send({status: "Tambah Movies Sukses", nama: req.body.nama, tahun: req.body.tahun, description: req.body.description})
+            res.send({status: "Tambah Movies Sukses", nama: req.body.namamovie, tahun: req.body.tahun, description: req.body.deskripsi})
                 })
     
     },
@@ -33,7 +33,7 @@ module.exports = {
     },
     deleteMovie: (req, res) => {
         sql = `DELETE FROM movies WHERE id=${req.params.id};`;
-        sql1 = `DELETE FROM moviecat WHERE idmovie=${req.params.id};`;
+        sql1 = `DELETE FROM movcat WHERE idmovie=${req.params.id};`;
         conn.query(sql, (err, results) => {
             if(err) throw err;
             console.log(results);
